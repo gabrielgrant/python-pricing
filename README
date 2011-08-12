@@ -1,0 +1,8 @@
+python-pricing provides a declarative DSL to describe pricing models
+for recurringly-billed products.
+
+Products are defined as a collection of features (each of which is
+composed of a value and a provisioning scheme) along with
+certain details about usage limits and pricing.
+
+See the tests directory for usage examples.
