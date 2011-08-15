@@ -46,6 +46,10 @@ class ProductSubclassTests(unittest.TestCase):
         self.p_cls.base_price = 100
         self.p_cls.requires_payment_details = False
         self.assertFalse(self.p.get_requires_payment_details())
+    def test_cls_name(self):
+        self.assertEqual(self.p_cls.name, 'GoldPlan')
+    def test_cls_verbose_name(self):
+        self.assertEqual(self.p_cls.verbose_name, 'gold plan')
     def test_name(self):
         self.assertEqual(self.p.name, 'GoldPlan')
     def test_verbose_name(self):

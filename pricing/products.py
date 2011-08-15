@@ -30,12 +30,12 @@ class Product(object):
         returning whether `base_price > 0`
         """
         return getattr(cls, 'requires_payment_details', cls.base_price > 0)
-    @property
-    def name(self):
-        return self.__class__.__name__
-    @property
-    def verbose_name(self):
-        cls_name = self.__class__.__name__
+    @dsl_tools.ReadOnlyClassProperty
+    def name(cls):
+        return cls.__name__
+    @dsl_tools.ReadOnlyClassProperty
+    def verbose_name(cls):
+        cls_name = cls.__name__
         def unclassy(c):
             return c.islower() and c or ' %s' % c.lower()
         return ''.join(unclassy(c) for c in cls_name).strip(' ')
