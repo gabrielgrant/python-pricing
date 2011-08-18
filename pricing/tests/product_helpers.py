@@ -2,6 +2,7 @@ from pricing.products import Product
 from pricing.features import IntegerFeature
 from pricing.features import AllocatedFeature, MeteredFeature
 from pricing.feature_pricing import FixedInclusion, FixedUnitPricing
+from pricing.manual_intervention import ManualPreApproval, ManualPostApproval
 
 class MySaaSAppAccount(Product):
     class Projects(IntegerFeature):
@@ -24,5 +25,15 @@ class GoldPlan(MySaaSAppAccount):
         pricing_scheme=FixedInclusion(included=10)
     class StorageSpace(MySaaSAppAccount.StorageSpace, MeteredFeature):
         pricing_scheme=FixedUnitPricing(unit_price='0.10')
+
+class SecretPlan(GoldPlan):
+    base_price = 0
+    hidden = True
+
+class EnterprisePlan(GoldPlan):
+    manual_intervention = ManualPostApproval
+
+class CustomPlan(GoldPlan):
+    manual_intervention = ManualPreApproval
         
 

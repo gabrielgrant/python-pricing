@@ -17,6 +17,7 @@ ProductMetaclass = dsl_tools.make_declarative_metaclass(
             
 class Product(object):
     __metaclass__ = ProductMetaclass
+    manual_intervention = None
     def __init__(self):
         for f_cls in self.features.values():
             f = f_cls()

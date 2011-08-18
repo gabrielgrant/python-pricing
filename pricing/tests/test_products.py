@@ -54,6 +54,9 @@ class ProductSubclassTests(unittest.TestCase):
         self.assertEqual(self.p.name, 'GoldPlan')
     def test_verbose_name(self):
         self.assertEqual(self.p.verbose_name, 'gold plan')
+    def test_default_manual_intervention(self):
+        self.assertIsNone(self.p_cls.manual_intervention)
+        self.assertIsNone(self.p.manual_intervention)
 
 def main():
     unittest.main()
