@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python-pricing',
-    version='0.1.0dev',
+    version='0.1.1dev',
     author='Gabriel Grant',
     packages=['pricing',],
     license='LGPL',
